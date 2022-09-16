@@ -4,7 +4,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 class LoadingBar extends StatelessWidget {
   const LoadingBar({Key? key, this.size}) : super(key: key);
   final double? size;
-  final _defaultSize = 40.0;
+  final _defaultSize = 80.0;
 
   @override
   Widget build(BuildContext context) {

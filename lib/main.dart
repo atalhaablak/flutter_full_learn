@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_full_learn/202/package_learn_view.dart';
+import 'package:flutter_full_learn/theme/theme.dart';
 
 import '101/color_learn.dart';
 
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
-        theme: ThemeData.dark().copyWith(
+        theme: LighTheme().theme,
+        /* ThemeData.dark().copyWith(
             bottomAppBarTheme: BottomAppBarTheme(
               shape: CircularNotchedRectangle(),
             ),
@@ -45,7 +47,7 @@ class MyApp extends StatelessWidget {
               systemOverlayStyle: SystemUiOverlayStyle.light,
               backgroundColor: Colors.transparent,
               elevation: 0,
-            )),
+            )), */
         home: PackageLearnView());
   }
 }
