@@ -33,7 +33,7 @@ class _FormLearnViewState extends State<FormLearnView> {
                       print("okey");
                     }
                   },
-                  child: Text("save")),
+                  child: const Text("save")),
             ],
           ),
         ),
