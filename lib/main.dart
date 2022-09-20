@@ -6,8 +6,12 @@ import 'package:flutter_full_learn/202/image_learn_202.dart';
 import 'package:flutter_full_learn/202/package_learn_view.dart';
 import 'package:flutter_full_learn/202/state_mange/state_manage_learn_view.dart';
 import 'package:flutter_full_learn/202/widget_size_enum_learn_view.dart';
+import 'package:flutter_full_learn/303/reqres_resource/view/reqres_view.dart';
+import 'package:flutter_full_learn/product/global/resource_contex.dart';
+import 'package:flutter_full_learn/product/global/theme_notifier.dart';
 import 'package:flutter_full_learn/theme/theme.dart';
 import 'package:flutter_full_learn/theme/theme_learn_view.dart';
+import 'package:provider/provider.dart';
 
 import '101/color_learn.dart';
 
@@ -17,7 +21,13 @@ import '202/service/service_learn_view.dart';
 import '202/service/service_post_learn_view.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(
+    providers: [
+      Provider(create: (_) => ResourceContext()),
+      ChangeNotifierProvider(create: (context) => ThemeNotifier()),
+    ],
+    builder: (context, child) => MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -28,7 +38,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
-        theme: LighTheme().theme,
+        theme: context.watch<ThemeNotifier>().currentTheme,
         /* ThemeData.dark().copyWith(
             bottomAppBarTheme: BottomAppBarTheme(
               shape: CircularNotchedRectangle(),
@@ -56,6 +66,6 @@ class MyApp extends StatelessWidget {
               backgroundColor: Colors.transparent,
               elevation: 0,
             )), */
-        home: SharedLearn());
+        home: ReqresView());
   }
 }
